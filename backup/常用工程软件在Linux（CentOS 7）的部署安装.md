@@ -206,3 +206,34 @@ systemctl daemon-reload
 # 开机自启
 systemctl enable nginx	
 ```
+
+
+
+## 安装JDK（以jdk-21为例）
+
+```shell
+# 下载tar包
+cd /usr/local/src
+wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.tar.gz
+tar -zxvf jdk-21_linux-x64_bin.tar.gz -C /usr/local/jdk
+
+# 创建软链接
+cd /usr/local/jdk
+ln -s /usr/local/jdk/jdk-21.0.8/ /usr/local/jdk/jdk
+
+#添加环境变量
+vim /etc/profile
+#添加如下信息
+export JAVA_HOME=/usr/local/jdk/jdk
+export PATH=$PATH:$JAVA_HOME/bin
+
+#删除默认版本的jdk
+rm -f /usr/bin/java
+
+#把新安装的jdk-21指向/usr/bin/java
+ln -s /usr/local/jdk/jdk/bin/java /usr/bin/java
+
+#查看jdk版本（版本为新安装的21即为成功）
+java -version
+```
+

@@ -259,7 +259,31 @@ WantedBy=multi-user.target
 systemctl daemon-reload
 
 <span class="pl-c"><span class="pl-c">#</span> 开机自启</span>
-systemctl <span class="pl-c1">enable</span> nginx	</pre></div></div>
+systemctl <span class="pl-c1">enable</span> nginx	</pre></div>
+<h2>安装JDK（以jdk-21为例）</h2>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 下载tar包</span>
+<span class="pl-c1">cd</span> /usr/local/src
+wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.tar.gz
+tar -zxvf jdk-21_linux-x64_bin.tar.gz -C /usr/local/jdk
+
+<span class="pl-c"><span class="pl-c">#</span> 创建软链接</span>
+<span class="pl-c1">cd</span> /usr/local/jdk
+ln -s /usr/local/jdk/jdk-21.0.8/ /usr/local/jdk/jdk
+
+<span class="pl-c"><span class="pl-c">#</span>添加环境变量</span>
+vim /etc/profile
+<span class="pl-c"><span class="pl-c">#</span>添加如下信息</span>
+<span class="pl-k">export</span> JAVA_HOME=/usr/local/jdk/jdk
+<span class="pl-k">export</span> PATH=<span class="pl-smi">$PATH</span>:<span class="pl-smi">$JAVA_HOME</span>/bin
+
+<span class="pl-c"><span class="pl-c">#</span>删除默认版本的jdk</span>
+rm -f /usr/bin/java
+
+<span class="pl-c"><span class="pl-c">#</span>把新安装的jdk-21指向/usr/bin/java</span>
+ln -s /usr/local/jdk/jdk/bin/java /usr/bin/java
+
+<span class="pl-c"><span class="pl-c">#</span>查看jdk版本（版本为新安装的21即为成功）</span>
+java -version</pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
