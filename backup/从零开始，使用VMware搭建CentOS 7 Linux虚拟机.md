@@ -68,3 +68,27 @@ VMwareWorkstationPro可前往联想应用商店点击下载即可，打开软件
 **8.安装完成**
 
 <img width="1052" height="767" alt="Image" src="https://github.com/user-attachments/assets/a90cec29-1180-4731-9eb4-945da506f445" />
+
+
+## 使用FinalShell远程连接Linux系统
+
+FinalShell是一款功能强大的国产软件，集成了SSH客户端、SFTP文件传输和服务器监控于一体，对新手非常友好。
+
+安装链接
+[[FinalShell SSH工具,服务器管理,远程桌面加速软件,支持Windows,macOS,Linux,版本4.6.3,更新日期2025.5.21 - FinalShell官网](https://www.hostbuf.com/t/988.html)](https://www.hostbuf.com/t/988.html)
+
+**1.创建SSH连接**
+
+<img width="1392" height="1023" alt="Image" src="https://github.com/user-attachments/assets/4e937da5-ec88-4524-9597-d252e4255f9a" />
+
+**2.运行Linux，同时查询IP**
+
+<img width="1050" height="701" alt="Image" src="https://github.com/user-attachments/assets/04198f1a-fcec-4aa5-817b-f25cea75a322" />
+
+**3.新建连接**
+
+<img width="1188" height="1063" alt="Image" src="https://github.com/user-attachments/assets/fde802f7-bfd3-467a-99ab-5562b268eeaf" />
+
+**4.连接成功**
+
+<img width="1392" height="1023" alt="Image" src="https://github.com/user-attachments/assets/65fa4481-08e8-4d75-961f-45801798225a" />
