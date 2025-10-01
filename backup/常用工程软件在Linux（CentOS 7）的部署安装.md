@@ -219,7 +219,7 @@ tar -zxvf jdk-21_linux-x64_bin.tar.gz -C /usr/local/jdk
 
 # 创建软链接
 cd /usr/local/jdk
-ln -s /usr/local/jdk/jdk-21.0.8/ /usr/local/jdk/jdk
+ln -s /usr/local/jdk/jdk-21.0.8 /usr/local/jdk/jdk
 
 #添加环境变量
 vim /etc/profile
@@ -236,4 +236,32 @@ ln -s /usr/local/jdk/jdk/bin/java /usr/bin/java
 #查看jdk版本（版本为新安装的21即为成功）
 java -version
 ```
+
+## 安装Tomcat
+
+```shell
+#添加一个新用户tomcat
+useradd tomcat
+su - tomcat
+
+#安装tomcat
+wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.46/bin/apache-tomcat-10.1.46.tar.gz
+#切回root执行解压操作，否则解压地址没有权限
+su - root
+cd /usr/local
+mkdir tomcat
+#解压缩
+cd /home/tomcat/
+tar -zxvf apache-tomcat-10.1.46.tar.gz -C /usr/local/tomcat
+cd /usr/local/tomcat
+ln -s /usr/local/tomcat/apache-tomcat-10.1.46 /usr/local/tomcat/tomcat
+
+# 把文件拥有者改为tomcat用户
+chown -R tomcat:tomcat tomcat
+chown -R tomcat:tomcat apache-tomcat-10.1.46
+
+#启动tomcat(默认绑定在8080端口)
+/usr/local/tomcat/tomcat/bin/startup.sh
+```
+
 
